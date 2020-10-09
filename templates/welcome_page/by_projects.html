@@ -1,0 +1,21 @@
+{% extends "welcome_page/base.html" %}
+
+{% block title %}{{ current_project }}{% endblock %}
+
+{% block name_header %}
+    <h1>Мероприятия проекта {{ current_project }}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if evs.count == 0 %}
+        Мероприятий не найдено
+    {% else %}
+        {% for ev in evs %}
+            <div>
+                <h2>{{ ev.title }}</h2>
+                <p>{{ ev.description }}</p>
+                <p>{{ ev.date|date:"d.m.Y" }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

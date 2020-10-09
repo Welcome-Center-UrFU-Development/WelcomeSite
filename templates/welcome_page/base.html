@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'welcome_page/style.css' %}">
+    <title>Welcome Центр — {% block title %}Main{% endblock %}</title>
+</head>
+<body>
+<header>
+    {% block name_header %}{% endblock %}
+</header>
+<nav>
+    <a href="/">Главная</a>
+    <a href="{% url 'add' %}">Добавить мероприятие</a>
+    {% for project in projects %}
+        <a href="{% url 'by_project' project.pk %}">{{ project.name }}</a>
+    {% endfor %}
+</nav>
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+<footer>
+    <p id="law">c. Все права защищены</p>
+    <p id="puzanovim">Заинженерино в студии Puzanovim</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "welcome_page/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block name_header %}
+    <h1>Мероприятия</h1>
+{% endblock %}
+
+{% block content %}
+    {% for ev in evs %}
+    <div>
+        <h2>{{ ev.title }}</h2>
+        <p>{{ ev.description }}</p>
+        <p><a href="/{{ ev.project.pk }}/">{{ ev.project.name }}</a></p>
+        <p>{{ ev.date|date:"d.m.Y" }}</p>
+    </div>
+    {% endfor %}
+{% endblock %}

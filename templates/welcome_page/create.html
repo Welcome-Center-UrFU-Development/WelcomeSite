@@ -1,0 +1,15 @@
+{% extends "welcome_page/base.html" %}
+
+{% block title %}Добавление мероприятия{% endblock %}
+
+{% block name_header %}
+    <h1>Добавление мероприятия</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить">
+    </form>
+{% endblock %}
